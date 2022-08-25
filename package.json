@@ -1,0 +1,19 @@
+{
+  "name": "curso-practico-api-javascript",
+  "version": "1.0.0",
+  "description": "Repositorio desarrollado para el Curso Práctico de Consumo de API REST con javascript",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeisonRedondo/curso-practico-api-javascript.git"
+  },
+  "author": "Jeison Redondo Laiton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JeisonRedondo/curso-practico-api-javascript/issues"
+  },
+  "homepage": "https://github.com/JeisonRedondo/curso-practico-api-javascript#readme"
+}
