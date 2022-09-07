@@ -19,6 +19,9 @@ function generateMoviesBox (array, container) {
 
         const movieContainer = document.createElement('div');
         movieContainer.classList.add('movie-container');
+        movieContainer.addEventListener('click',() => {
+            location.hash = `#movie=${movie.id}`
+        });
 
         const movieImg = document.createElement('img');
         movieImg.classList.add('movie-img');
@@ -127,4 +130,37 @@ async function getTrendingMovies() {
 
     generateMoviesBox (movies, genericSection);
       
+}
+
+async function getMovieById(id) {
+    const media_type = '/movie/';
+    
+    const {data: movie} = await api(`${media_type}${id}`);
+
+    const movieImgUrl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+    headerSection.style.background = `
+    linear-gradient(
+        180deg, 
+        rgba(0, 0, 0, 0.35) 19.27%, 
+        rgba(0, 0, 0, 0) 29.17%
+        ),
+    url(${movieImgUrl})`;
+
+    movieDetailTitle.textContent = movie.title;
+    movieDetailDescription.textContent = movie.overview;
+    movieDetailScore.textContent = movie.vote_average;
+
+    createCategoriesBox(movie.genres,movieDetailCategoriesList);
+
+    getRelatedMoviesById(id);
+}
+
+async function getRelatedMoviesById(id){
+
+    const media_type = '/movie/';
+
+    const {data} = await api(`${media_type}${id}/recommendations`);
+    const relatedMovies = data.results;
+
+    generateMoviesBox(relatedMovies, relatedMoviesContainer);
 }

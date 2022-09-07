@@ -8,8 +8,10 @@ trendingBtn.addEventListener('click', () => {
 });
 
 arrowBtn.addEventListener('click', () => {
-    document.domain === 'localhost' ? window.history.back() :
-    location.hash = '#home=';
+    // document.domain == 'localhost' ? window.history.back() :
+    // location.hash = '#home=';
+    window.history.back()
+    
 });
 
 window.addEventListener('DOMContentLoaded',navigator,false)
@@ -96,7 +98,10 @@ function movieDetailsPage(){
     categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.add('inactive');
     movieDetailSection.classList.remove('inactive');
-    location.hash
+    
+     // ['#movie', 'idMovie']
+     const [_,movieId] = location.hash.split('=');
+    getMovieById(movieId)
 }
 function SearchPage(){
     console.log('Search!!');
