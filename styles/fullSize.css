@@ -1,0 +1,15 @@
+.category-container {
+    width: 25%;
+    
+}
+.categoriesPreview-list{
+    justify-content: left;
+}
+/* ---------------------------- Trending ------------------------ */
+.genericList-container{
+    justify-content: left;
+}
+.genericList-container .movie-container{
+    width: 32%;
+    margin: 4px 6.5px;
+}
